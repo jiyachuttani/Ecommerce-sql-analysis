@@ -1,0 +1,15 @@
+ALTER TABLE ecommerce
+ADD TotalSales DECIMAL(12,2);
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE ecommerce
+SET TotalSales = Quantity * UnitPrice;
+SET SQL_SAFE_UPDATES = 1;
+
+SELECT
+YEAR(STR_TO_DATE(InvoiceDate, '%m/%d/%Y %H:%i')) AS Year
+FROM ecommerce;
+
+SELECT
+MONTH(STR_TO_DATE(InvoiceDate, '%m/%d/%Y %H:%i')) AS Month
+FROM ecommerce;
